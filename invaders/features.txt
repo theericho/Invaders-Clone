@@ -1,0 +1,36 @@
+MULTIPLE WAVES:
+With each successive wave, the aliens walk faster as the ALIEN_SPEED decreases by ALIEN_SP_DEC (a newly created global constant).
+ALIEN_SP_DEC is 0.05 in consts.py, but it can be changed to be smaller or larger.
+The number of lives (of ships) resets to 3 every new wave.
+
+I created two new hidden class attributes: _wavecounter and _wavespeed
+With each successive wave, I increased _wavecounter in app.py (i.e. when all the aliens are dead)
+Then each new wave was initalized with the running wavecounter. 
+Then, I can set the wavespeed as a function of wavecounter (i.e. in this simplest case, wavespeed=speed-wavecounter*amount)
+
+DYNAMIC ALIENS:
+Aliens move faster with each successive alien you kill. The wavespeed is multiplied by INCREMENT in consts.py.
+The factor is currently set at 0.985.
+
+Very similar to the first extension. Wavespeed is initially set by wavespeed=speed-wavecounter*amount in the init.
+This time, I multiplied the wavespeed by INCREMENT of 0.985 everytime I detected a bolt collision with an alien. 
+
+LIVES, WAVES AND POINTS COUNTER:
+Self explanatory... counters seen in game window
+
+Added a helper function in update of app.py with corresponding GLabel. The text is then drawn.
+
+SCORE COUNTER:
+Self explanatory... counters seen in game window
+The farther aliens are worth more points.
+Aliens in 1st and 2nd row closest to ship worth 10 each
+Aliens in 3rd and 4th row closest to ship worth 20 each
+Aliens in 5th and 6th row closest to ship worth 30 each... etc
+
+Everytime there was a collision between an alien and player bolt, I knew that an alien had died.
+Therefore, I would add to the running score. Aliens every two rows farther would be worth 10 more points.
+(I used the indexes of rows to do this //2+1)*10
+Then I used a hidden class attribute _justKilled to know when to update the score in app.py using a getter in app.py.
+Then, I updated the running player score and set _justKilled back to False so I can update the score
+if there is another collision (_justKilled turns True again).
+ 
