@@ -8,9 +8,9 @@ To run the game, download and install pre-requisites. Then, type ```python invad
 This version of the game has an infinite number of waves and ends when you run out of lives or if the aliens reach your defensive line.
 
 The score is tallied: the farther aliens are worth more points.
-Aliens in 1st and 2nd row closest to ship worth 10 each
-Aliens in 3rd and 4th row closest to ship worth 20 each
-Aliens in 5th and 6th row closest to ship worth 30 each
+Aliens in 1st and 2nd row closest to ship worth 10 each.
+Aliens in 3rd and 4th row closest to ship worth 20 each.
+Aliens in 5th and 6th row closest to ship worth 30 each.
 
 Dyanmic aliens: Aliens move faster with each successive alien you kill. The wavespeed is multiplied by INCREMENT in consts.py.
 The factor is currently set at 0.985.
